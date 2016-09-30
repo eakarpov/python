@@ -45,17 +45,23 @@ class Account:
 
     """Deposits your money on your account."""
     def deposit(self, value):
-        self._total += Decimal(value)
-        self._charges.append(Charge(value))
+        if value > 0:
+            self._total += Decimal(value)
+            self._charges.append(Charge(value))
+        else:
+            print("Negative or null sum of money is unavailable!")
 
     """Withdraws your money from your account."""
     def withdraw(self, value):
-        if self._total - Decimal(value) >= 0:
-            self._total -= Decimal(value)
-            self._charges.append(Charge(-value))
+        if value > 0:
+            if self._total - Decimal(value) >= 0:
+                self._total -= Decimal(value)
+                self._charges.append(Charge(-value))
+            else:
+                print("Negative profit is unavailable!")
         else:
-            print("Negative profit is unavailable!")
-
+            print("Negative or null sum of money is unavailable!")
+                
 
 if __name__ == '__main__':
     acc = Account()
