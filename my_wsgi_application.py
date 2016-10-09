@@ -49,9 +49,9 @@ class WSGIApplication:
 
     def no_content_response(self):
         print('Create response')
-        print('Get headers')
-        self.start_response('204 No Content', self.headers)
-        print('Headers are sent')
+        print('Get status only')
+        self.start_response('204 No Content', [])
+        print('Status is sent')
 
     def ok_response(self, message):
         print('Create response')
