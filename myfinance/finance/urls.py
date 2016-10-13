@@ -1,6 +1,6 @@
 from django.conf.urls import url
-from finances.views import index
-from finances.views import charges
+from finance.views import index
+from finance.views import charges
 
 urlpatterns = [
     url(r'^$', index),
