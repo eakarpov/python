@@ -90,8 +90,7 @@ class ChargeFromGeneratorView(TemplateView):
         self.var_pos = []
         self.var_neg = []
         self.template = loader.get_template(template_name=self.template_name)
-        for i in range(10):
-            date_value, value = next(random_transactions())
+        for (date_value, value) in random_transactions():
             if value < 0:
                 self.var_neg.append((date_value, value))
             else:
