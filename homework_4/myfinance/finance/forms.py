@@ -21,7 +21,9 @@ class ChargeForm(ModelForm):
         date_value = self.cleaned_data.get('date')
         if value < 0:
             if date_value > date.today():
-                raise ValidationError('You can not withdraw from the account on the future dates!')
+                raise ValidationError("You can not withdraw from the account on the future dates!")
         if value == 0:
-            raise ValidationError('You can not add a without money charge!')
+            raise ValidationError("You can not add a without money charge!")
         return self.cleaned_data
+
+
