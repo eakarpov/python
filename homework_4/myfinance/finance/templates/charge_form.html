@@ -1,0 +1,17 @@
+{% extends "template.html" %}
+{% block title %}
+    {{ title }}
+{% endblock %}
+{% block body %}
+    <h1>{{ title }}</h1>
+    <p>Сообщение отладки (info)</p>
+    {{ info }}
+    <h2>Форма</h2>
+    <form action="{% url "finance:charge_form" %}" method="post">
+        {% csrf_token %}
+        {{ form }}
+        <br>
+        <button type="submit">Отправить</button>
+    </form>
+    <a href="{% url "finance:index" %}">Return to Main page</a>
+{% endblock %}py

@@ -1,0 +1,12 @@
+{% extends "template.html" %}
+{% block title %}
+{{ title }}
+{% endblock %}
+
+{% block body %}
+<h1>Hi there!</h1>
+<p>Welcome to the main page of the Django project. Here you can find the information about your charges.</p>
+<a href = "{% url "finance:charges" %}">Look at your database charge table!</a><br/>
+<a href = "{% url "finance:charge_list" %}">Look at your generated charge table!</a><br/>
+<a href = "{% url "finance:charge_form" %}">Fill in the form and add a new charge!</a>
+{% endblock %}

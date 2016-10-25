@@ -1,0 +1,51 @@
+{% extends "template.html" %}
+{% block title %}
+{{ title }}
+{% endblock %}
+
+{% block body %}
+<h1>{{ title }}</h1>
+<a href="{% url "finance:index" %}">Return to Main page</a>
+<table class="table">
+    <caption>My positive charges</caption>
+    <tr>
+        <th>
+            Date
+        </th>
+        <th>
+            Amount
+        </th>
+    </tr>
+    {% for var in var_neg %}
+    <tr>
+        <td>
+            {{ var.date }}
+        </td>
+        <td>
+            {{ var.value }}
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+<table class="table">
+    <caption>My negative charges</caption>
+    <tr>
+        <th>
+            Date
+        </th>
+        <th>
+            Amount
+        </th>
+    </tr>
+    {% for var in var_pos %}
+        <tr>
+            <td>
+                {{  var.date }}
+            </td>
+            <td>
+                {{ var.value }}
+            </td>
+        </tr>
+    {% endfor %}
+</table>
+{% endblock %}
